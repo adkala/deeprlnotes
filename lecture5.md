@@ -1,5 +1,4 @@
-$$
-\def\at{\textbf{a}_t}
+$\def\at{\textbf{a}_t}
 \def\st{\textbf{s}_t}
 \def\ot{\textbf{o}_t}
 \def\pt{\pi_\theta}
@@ -14,8 +13,7 @@ $$
 \let\djt\pg
 \def\prtt{p_\theta(\tau)}
 \def\rt{r(\tau)}
-\def\nt{\nabla_\theta}
-$$
+\def\nt{\nabla_\theta}$
 
 Addison Kalanther (addikala@berkeley.edu)
 
