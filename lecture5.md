@@ -1,21 +1,40 @@
 $$
-\gdef\at{\textbf{a}_t}
-\gdef\st{\textbf{s}_t}
-\gdef\ot{\textbf{o}_t}
-\gdef\pt{\pi_\theta}
-\gdef\M{\mathcal{M}}
-\gdef\S{\mathcal{S}}
-\gdef\T{\mathcal{T}}
-\gdef\a{\textbf{a}}
-\gdef\s{\textbf{s}}
-\gdef\ptot{{\tau\sim p_\theta(\tau)}}
-\gdef\jt{J(\theta)}
-\gdef\pg{\nabla_\theta \jt}
-\global\let\djt\pg
-\gdef\prtt{p_\theta(\tau)}
-\gdef\rt{r(\tau)}
-\gdef\nt{\nabla_\theta}
+\def\at{\textbf{a}_t}
+\def\st{\textbf{s}_t}
+\def\ot{\textbf{o}_t}
+\def\pt{\pi_\theta}
+\def\M{\mathcal{M}}
+\def\S{\mathcal{S}}
+\def\T{\mathcal{T}}
+\def\a{\textbf{a}}
+\def\s{\textbf{s}}
+\def\ptot{{\tau\sim p_\theta(\tau)}}
+\def\jt{J(\theta)}
+\def\pg{\nabla_\theta \jt}
+\let\djt\pg
+\def\prtt{p_\theta(\tau)}
+\def\rt{r(\tau)}
+\def\nt{\nabla_\theta}
 $$
+
+\(
+\def\at{\textbf{a}_t}
+\def\st{\textbf{s}_t}
+\def\ot{\textbf{o}_t}
+\def\pt{\pi_\theta}
+\def\M{\mathcal{M}}
+\def\S{\mathcal{S}}
+\def\T{\mathcal{T}}
+\def\a{\textbf{a}}
+\def\s{\textbf{s}}
+\def\ptot{{\tau\sim p_\theta(\tau)}}
+\def\jt{J(\theta)}
+\def\pg{\nabla_\theta \jt}
+\let\djt\pg
+\def\prtt{p_\theta(\tau)}
+\def\rt{r(\tau)}
+\def\nt{\nabla_\theta}
+\)
 
 Addison Kalanther (addikala@berkeley.edu)
 
