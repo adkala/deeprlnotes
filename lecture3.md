@@ -7,6 +7,7 @@ This is a quick overview of PyTorch, an autodiff framework used to train models.
 ## What is a model?
 
 A model is of the form
+
 $$\theta^* = \text{argmin}_\theta \sum_{(x, y) \in D}\mathcal{L}(f_\theta(x), y)$$
 
 with
