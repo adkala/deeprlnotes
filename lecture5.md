@@ -17,25 +17,6 @@ $$
 \def\nt{\nabla_\theta}
 $$
 
-\(
-\def\at{\textbf{a}_t}
-\def\st{\textbf{s}_t}
-\def\ot{\textbf{o}_t}
-\def\pt{\pi_\theta}
-\def\M{\mathcal{M}}
-\def\S{\mathcal{S}}
-\def\T{\mathcal{T}}
-\def\a{\textbf{a}}
-\def\s{\textbf{s}}
-\def\ptot{{\tau\sim p_\theta(\tau)}}
-\def\jt{J(\theta)}
-\def\pg{\nabla_\theta \jt}
-\let\djt\pg
-\def\prtt{p_\theta(\tau)}
-\def\rt{r(\tau)}
-\def\nt{\nabla_\theta}
-\)
-
 Addison Kalanther (addikala@berkeley.edu)
 
 # Lecture 5: Policy Gradients
