@@ -2,17 +2,16 @@ Addison Kalanther (addikala@berkeley.edu)
 
 # Lecture 3: PyTorch
 
-This is a quick overview of PyTorch, a framework used to train models.
+This is a quick overview of PyTorch, an autodiff framework used to train models.
 
 ## What is a model?
 
 A model is of the form
-
 $$\theta^* = \text{argmin}_\theta \sum_{(x, y) \in D}\mathcal{L}(f_\theta(x), y)$$
 
 with
 
-- $\text{argmin}_\theta$ being the gradient descent,
+- $\arg \min_\theta$ being the gradient descent,
 - $D$ being the dataset,
 - $\mathcal{L}$ being the loss function, and
 - $f_\theta$ being the neural network.
