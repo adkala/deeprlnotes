@@ -1,4 +1,4 @@
-<!---
+<!--
 \newcommand{\at}{\textbf{a}_t}
 \newcommand{\st}{\textbf{s}_t}
 \newcommand{\ot}{\textbf{o}_t}
@@ -10,9 +10,9 @@
 \newcommand{\s}{\textbf{s}}
 \newcommand{\ptot}{{\tau\sim p_\theta(\tau)}}
 \newcommand{\jt}{J(\theta)}
-\newcommand{\pg}{\nabla*\theta \jt}
+\newcommand{\pg}{\nabla_\theta \jt}
 \newcommand{\djt}{\pg}
-\newcommand{\prtt}{p*\theta(\tau)}
+\newcommand{\prtt}{p_\theta(\tau)}
 \newcommand{\rt}{r(\tau)}
 \newcommand{\nt}{\nabla_\theta}
 -->

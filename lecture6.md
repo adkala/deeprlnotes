@@ -10,18 +10,18 @@
 \newcommand{\s}{\textbf{s}}
 \newcommand{\ptot}{{\tau\sim p_\theta(\tau)}}
 \newcommand{\jt}{J(\theta)}
-\newcommand{\pg}{\nabla*\theta \jt}
+\newcommand{\pg}{\nabla_\theta \jt}
 \newcommand{\djt}{\pg}
-\newcommand{\prtt}{p*\theta(\tau)}
+\newcommand{\prtt}{p_\theta(\tau)}
 \newcommand{\rt}{r(\tau)}
-\newcommand{\nt}{\nabla*\theta}
+\newcommand{\nt}{\nabla_\theta}
 \newcommand{\Vp}{V^\pi}
 \newcommand{\Qp}{Q^\pi}
 \newcommand{\Ap}{A^\pi}
 \newcommand{\Vps}{V^\pi(\st)}
 \newcommand{\Qps}{Q^\pi(\st, \at)}
 \newcommand{\Aps}{A^\pi(\st, \at)}
-\newcommand{\FVps}{\hat{V}*\phi^\pi(\st)}
+\newcommand{\FVps}{\hat{V}_\phi^\pi(\st)}
 \newcommand{\AVps}{\hat{A}_\phi^\pi(\st, \at)}
 \newcommand{\QVps}{\hat{Q}_\phi^\pi(\st, \at)}
 \newcommand{\R}{\mathcal{R}}
