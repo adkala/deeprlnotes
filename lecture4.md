@@ -1,3 +1,15 @@
+<!--
+\newcommand{\at}{\textbf{a}_t}
+\newcommand{\st}{\textbf{s}_t}
+\newcommand{\ot}{\textbf{o}_t}
+\newcommand{\pt}{\pi_\theta}
+\newcommand{\M}{\mathcal{M}}
+\renewcommand{\S}{\mathcal{S}}
+\newcommand{\T}{\mathcal{T}}
+\renewcommand{\a}{\textbf{a}}
+\newcommand{\s}{\textbf{s}}
+-->
+
 $$
 \gdef\at{\textbf{a}_t}
 \gdef\st{\textbf{s}_t}
@@ -9,6 +21,8 @@ $$
 \gdef\a{\textbf{a}}
 \gdef\s{\textbf{s}}
 $$
+
+Addison Kalanther (addikala@berkeley.edu)
 
 # Lecture 4: Introduction to RL
 
@@ -59,7 +73,7 @@ The equation for $\T$ becomes $\T_{i, j, k} = p(s_{t+1}=i \mid s_t = j, a_t = k)
 
 The POMDP is the same as the MDP but there is an emission probability $\epsilon = p(o_t \mid s_t)$ that defines the probability an observation is $o_t$ given state $s_t$.
 
-![POMDP](images\lec4_fig4.png)
+![POMDP](images/lec4_fig4.png)
 
 ## Goal of reinforcement learning
 
@@ -88,7 +102,7 @@ Reward functions are not usually smooth, so it can't be differentiated. However,
 
 RL algorithms follow the loop of **generate samples**, **fit a model/estimate return**, and **improve the policy**.
 
-![Anatomy of RL algorithms](images\lec4_fig5.png)
+![Anatomy of RL algorithms](images/lec4_fig5.png)
 
 ### RL by backprop
 

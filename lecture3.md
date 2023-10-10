@@ -1,3 +1,5 @@
+Addison Kalanther (addikala@berkeley.edu)
+
 # Lecture 3: PyTorch
 
 This is a quick overview of PyTorch, an autodiff framework used to train models.

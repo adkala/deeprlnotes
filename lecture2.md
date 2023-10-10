@@ -1,3 +1,5 @@
+Addison Kalanther (addikala@berkeley.edu)
+
 # Lecture 2: Imitation Learning
 
 Imitation learning is the supervised learning of behaviors (this is not reinforcement learning). We allow an expert to complete the task successfully a large number of times, and then train off that data using standard supervised learning techniques (neural networks).
