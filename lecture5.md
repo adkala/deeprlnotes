@@ -1,3 +1,22 @@
+<!---
+\newcommand{\at}{\textbf{a}_t}
+\newcommand{\st}{\textbf{s}_t}
+\newcommand{\ot}{\textbf{o}_t}
+\newcommand{\pt}{\pi_\theta}
+\newcommand{\M}{\mathcal{M}}
+\renewcommand{\S}{\mathcal{S}}
+\newcommand{\T}{\mathcal{T}}
+\renewcommand{\a}{\textbf{a}}
+\newcommand{\s}{\textbf{s}}
+\newcommand{\ptot}{{\tau\sim p_\theta(\tau)}}
+\newcommand{\jt}{J(\theta)}
+\newcommand{\pg}{\nabla*\theta \jt}
+\newcommand{\djt}{\pg}
+\newcommand{\prtt}{p*\theta(\tau)}
+\newcommand{\rt}{r(\tau)}
+\newcommand{\nt}{\nabla_\theta}
+-->
+
 $$
 \def\at{\textbf{a}_t}
 \def\st{\textbf{s}_t}
@@ -17,13 +36,15 @@ $$
 \def\nt{\nabla_\theta}
 $$
 
+Addison Kalanther (addikala@berkeley.edu)
+
 # Lecture 5: Policy Gradients
 
 This lecture goes over the basics of policy gradients.
 
 ## Direct policy differentiation
 
-The RL objective is taking the $\argmax$ of the expectation of the sum of rewards over the trajectory distribution of the policy. In policy differentiation, this is often estimated via sampling trajectories of a given policy and averaging their total rewards. This method of estimation is also known as _monte carlo_.
+The RL objective is taking the $\arg \max$ of the expectation of the sum of rewards over the trajectory distribution of the policy. In policy differentiation, this is often estimated via sampling trajectories of a given policy and averaging their total rewards. This method of estimation is also known as _monte carlo_.
 
 Defining $J(\theta) = E_\ptot[r(\tau)]$ as the RL objective, we can use the definition of expectation to evaluate this as $\jt = \int{p_\theta (\tau)r(\tau)d\tau}$ and take it's gradient to get the default policy gradient.
 
@@ -95,7 +116,7 @@ Here are a few methods we can use to reduce variance.
 
 We can reduce variance by finding a way to reduce the value of the 'weight' we are using. In default policy gradient, this is the reward. However, we can instead use a _reward-to-go_ rather than a total reward.
 
-This is because of _causality_, the idea that a policy at time $t'$ cannot affect the reward at time $t$ when $t \lt t'$. We can use causality as the expected gradient of the reward $r(t)$ with respect to a policy at time t' is 0, since they would be uncorrelated. This leaves the policy gradient unbiased.
+This is because of _causality_, the idea that a policy at time $t'$ cannot affect the reward at time $t$ when $t < t'$. We can use causality as the expected gradient of the reward $r(t)$ with respect to a policy at time t' is 0, since they would be uncorrelated. This leaves the policy gradient unbiased.
 
 By taking advantage of causality, we ensure that better policies continue to be more probabilistic while reducing the magnitude of the total rewards for a given state, reducing overall variance of the policy.
 
@@ -247,4 +268,58 @@ Tweaking learning rates can be very hard. Adaptive step size rules like ADAM can
 
 ## Advanced policy gradients
 
-An issue with
+### Covariant/natural policy gradient
+
+An issue with multivariate policy gradients is the magnitude of independent variables influencing the rate at which gradients move in the component directions of individual independent variables.
+
+This means some parameters change probabilities a lot more than others. To combat this, we have to rescale the gradient so this doesn't happen. We can control how 'far' the parameters go by performing the following gradient update step.
+
+$$\theta' \leftarrow \arg \max_{\theta'}(\theta' - \theta)^T\djt \text{ s.t. } ||\theta' - \theta||^2 \leq \epsilon$$
+
+The constraint penalizes moving terms with large magnitudes and rewards moving terms with small magnitudes, resulting in a _rescaled_ gradient that doesn't overcompensate in the direction of large values.
+
+#### KL Divergence
+
+To control how far we go, we use a parameterization-independent divergence measure, usually the KL-divergence. The KL-divergence $D_{KL}(P || Q)$ can be described as the expected surprise when using $Q$ as a model when the true distribution is $P$ (the surprise can be thought of as the difference in information / probabilities over $P$). KL-divergence is equivalent to the following equation.
+
+$$D_{KL}(\pi_{\theta'}||\pt) = E_{\pi_{\theta'}}[\log\pt - \log\pi_{\theta'}]$$
+
+_Note: KL Divergence is not symmetric_
+
+KL Divergence can be approximated using the Fisher information matrix, meaning it can be estimated with samples using the following.
+
+$$D_{KL}(\pi_{\theta'}||\pt) \approx (\theta' - \theta)^T\bold{F}(\theta' - \theta)$$
+
+$$\bold{F}=E_{\pt}[\nt\log\pt(\a\mid\s)\nt\log(\a\mid\s)^T]$$
+
+#### Trust Region Policy Optimization
+
+Using KL divergence, we can rewrite our gradient step as the following.
+
+$$\theta' \leftarrow \arg \max_{\theta'}(\theta' - \theta)^T\djt \text{ s.t. } D_{KL}(\pi_{\theta'}||\pt) \leq \epsilon$$
+
+#### Natural Gradient
+
+We can achieve a similar effect by using the natural gradient update step
+
+$$\theta \leftarrow \theta + \alpha\bold{F}^{-1}\djt$$
+
+We can solve for the optimal $\alpha$ while solving $\bold{F}^{-1}\djt$. This allows us to take bigger gradient steps over TRPO at the cost of computation.
+
+## Policy gradients suggested readings
+
+### Classic Papers
+
+- [Williams (1992). Simple statistical gradient-following algorithms for connectionist reinforcement learning](https://people.cs.umass.edu/~barto/courses/cs687/williams92simple.pdf): introduces REINFORCE algorithm
+
+- [Baxter & Bartlett (2001). Infinite-horizon policy-gradient estimation](https://arxiv.org/abs/1106.0665): temporally decomposed policy gradient
+
+- [Peters & Schaal (2008). Reinforcement learning of motor skills with policy gradients](https://www.sciencedirect.com/science/article/pii/S0893608008000701?via%3Dihub): very accessible overview of optimal baselines and natural gradient
+
+### Deep reinforcement learning policy gradient papers
+
+- [Levine & Koltun (2013). Guided policy search](https://graphics.stanford.edu/projects/gpspaper/gps_full.pdf): deep RL with importance sampled policy gradient
+
+- [Schulman, L., Moritz, Jordan, Abbeel (2015). Trust region policy optimization](https://arxiv.org/abs/1502.05477): deep RL with natural policy gradient and adaptive step size
+
+- [Schulman, Wolski, Dhariwal, Radford, Klimov (2017). Proximal policy optimization algorithm](https://arxiv.org/abs/1707.06347): deep RL with importance sampled policy gradient

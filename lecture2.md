@@ -58,11 +58,11 @@ $$\mid p_\theta(\textbf{s}_t) - p_{train}(\textbf{s}_t) \mid \ = (1 - (1 - \epsi
 - **Useful identity: $(1 - \epsilon)^t \ge 1 - \epsilon t \text{ for } \epsilon \in [0, 1]$**
 
 $$
-\begin{align*}
+\begin{aligned}
   \sum_t E_{p_\theta(\textbf{s}_t)}[c_t] = \sum_t\sum_{\textbf{s}_t}p_\theta(\textbf{s}_t)c_t(\textbf{s}_t) &\le \sum_t \sum_{\textbf{s}_t}p_{train}(\textbf{s}_t)c_t(\textbf{s}_t) + \mid p_\theta(\textbf{s}_t) - p_{train}(\textbf{s}+t) \mid c_{max} \\
   &\le \sum_t \epsilon + 2 \epsilon \\
   &= O(\epsilon T^2)
-\end{align*}
+\end{aligned}
 $$
 
 <sup>For more analysis, see [Ross et al. "A Reduction of Imitation Learning and Structured Prediction to No-Regret Online Learning"](https://arxiv.org/abs/1011.0686) </sup>
@@ -138,6 +138,6 @@ DAgger stands for **D**ataset **A**ggregation. The goal of DAgger is to make $p_
 1. train $\pi_\theta(\textbf{a}_t \mid \textbf{o}_t)$ from human data $\mathcal{D}= \{\textbf{0}_1, \textbf{a}_1, ..., \textbf{o}_N, \textbf{a}_N\}$
 2. run $\pi_\theta(\textbf{a}_t \mid \textbf{o}_t)$ to get dataset
 3. Ask human to label $\mathcal{D}_\pi$ with actions $\textbf{a}_t$
-4. Aggregate: $ \mathcal{D} \leftarrow \mathcal{D} \ \cup \ \mathcal{D}\_\pi$
+4. Aggregate: $\mathcal{D} \leftarrow \mathcal{D} \ \cup \ \mathcal{D}_\pi$
 
 The issue with DAgger is in step 3, where we ask a human to relabel data with actions $\textbf{a}_t$ that it would have taken. It can be unnatural for a human to know what they would do given just the observation, or they can give bad data as what they say they would have done is not true in reality.
