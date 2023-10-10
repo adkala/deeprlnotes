@@ -1,13 +1,13 @@
 $$
-\def\at{\textbf{a}_t}
-\def\st{\textbf{s}_t}
-\def\ot{\textbf{o}_t}
-\def\pt{\pi_\theta}
-\def\M{\mathcal{M}}
-\def\S{\mathcal{S}}
-\def\T{\mathcal{T}}
-\def\a{\textbf{a}}
-\def\s{\textbf{s}}
+\gdef\at{\textbf{a}_t}
+\gdef\st{\textbf{s}_t}
+\gdef\ot{\textbf{o}_t}
+\gdef\pt{\pi_\theta}
+\gdef\M{\mathcal{M}}
+\gdef\S{\mathcal{S}}
+\gdef\T{\mathcal{T}}
+\gdef\a{\textbf{a}}
+\gdef\s{\textbf{s}}
 $$
 
 # Lecture 4: Introduction to RL
@@ -104,10 +104,10 @@ Q-functions $Q^\pi(\st, \at)$ provide another way of dealing with expectation, b
 
 Using this definition, it is easy to see that the value function of state $\st$ is equal to the expectation over action given state marginal of the policy. In other words,
 
-$$V^\pi(\st) = E\_{\at \sim \pi(\at \mid \st)}[Q^\pi(\st, \at)]$$
+$$V^\pi(\st) = E_{\at \sim \pi(\at \mid \st)}[Q^\pi(\st, \at)]$$
 
 Using the value function, the RL objective can be written as
-$$ E\_{\bold{s}\_1 \sim p(\bold{s}\_1)}[V^\pi(\bold{s}_1)]$$
+$$E_{\bold{s}_1 \sim p(\bold{s}_1)}[V^\pi(\bold{s}_1)]$$
 
 ## Types of RL Algorithms
 
