@@ -17,8 +17,6 @@ $$
 \def\nt{\nabla_\theta}
 $$
 
-Addison Kalanther (addikala@berkeley.edu)
-
 # Lecture 5: Policy Gradients
 
 This lecture goes over the basics of policy gradients.

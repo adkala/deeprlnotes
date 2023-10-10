@@ -10,8 +10,6 @@ $$
 \def\s{\textbf{s}}
 $$
 
-Addison Kalanther (addikala@berkeley.edu)
-
 # Lecture 4: Introduction to RL
 
 This lecture first introduces us to reinforcement learning (RL) and its basic terms and variants.

@@ -1,5 +1,3 @@
-Addison Kalanther (addikala@berkeley.edu)
-
 # Lecture 1: Introduction to Course
 
 The topic of this class is reinforcement learning, a type of machine learning whose primary goal is to maximize a reward function. This is different from supervised machine learning, whose goal is to more-or-less replicate what it sees given a large dataset.
